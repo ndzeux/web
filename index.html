@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harry Hidayat</title>
     <link rel="stylesheet" href="src/css/style.css">
+    <link rel="shortcut icon" href="src/img/favicon.png" type="image/x-icon">
     <style>
         .container{
             width: 80%;
@@ -27,61 +28,51 @@
             top: -90px;
             left: calc(50% - 90px);
         }
-        /* .mid{} */
-        .mid button{
-            padding: 16px 0;
-            background: #333;
-            color: #fff;
-            border: 1px solid #333;
-            width: calc(33.333% - 6px);
-            cursor: pointer;
-            margin: 0 1px;
-            transition: background 0.3s, color 0.3s;
+        h2{
+            margin: 0;
+            font-size: 20px;
         }
-        .mid button:hover{
-            background: #fff;
-            color: #333;
+        .blok{
+            width: 100%;
+            margin: 12px 0 0 0;
+            border-radius: 24px;
+            border: 2px solid #fafafa;
+        }
+        .blok span{
+            display: block;
+            border-radius: 24px;
+            padding: 1px 15px;
+            text-align: right;
+            font-size: 13px;
+        }
+        .html{
+            background: #fb6c04;
+            color: #fff;
+            width: calc(90% - 30px);
+        }
+        .css{
+            background: #049ce4;
+            color: #fff;
+            width: calc(85% - 30px);
+        }
+        .javascript{
+            background: #fbd304;
+            color: #222;
+            width: calc(85% - 30px);
+        }
+        .node{
+            background: #6ca45f;
+            color: #fff;
+            width: calc(85% - 30px);
+        }
+        .php-lumen{
+            background: #f44138;
+            color: #fff;
+            width: calc(85% - 30px);
         }
         .bot{
             margin-top: 100px;
             padding: 16px;
-        }
-        .modal{
-            position: fixed;
-            top: 16px;right: 16px;bottom: 16px;left: 16px;
-            background: #fff;
-            z-index: 2;
-            width: cacl(100% - 32px);
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 16px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            overflow: auto;
-        }
-        .overlay{
-            position: fixed;
-            top: 0;right: 0;bottom: 0;left: 0;
-            z-index: 1;
-            background: rgba(0,0,0,0.2);
-        }
-        .close-modal{
-            background: rgba(202, 0, 0, 0.7);
-            padding: 4px;
-            border: 1px solid #ca0000;
-            position: fixed;z-index: 3;
-            top: 0;
-            right: 8px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .close-modal:hover{
-            background: rgba(202, 0, 0, 1);
-        }
-        .loading{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
         }
     </style>
 </head>
@@ -90,51 +81,21 @@
         <img src="src/img/harryhdt.jpg" alt="Harry Hidayat">
         <h1>Harry Hidayat</h1>
         <p>adalah seorang fullstack developer yang bergelut dibidang web, aplikasi dan internet of things.</p>
+        <h2>Web Programming</h2>
+        <div class="blok"><span class="html">HTML 90%</span></div>
+        <div class="blok"><span class="css">CSS 85%</span></div>
+        <div class="blok"><span class="javascript">Javascript 80%</span></div>
+        <div class="blok"><span class="node">Node 75%</span></div>
+        <div class="blok"><span class="php-lumen">PHP Lumen 75%</span></div>
     </div>
-    <div class="mid container">
-        <button>Web</button><button>Aplikasi</button><button>IoT</button>
-    </div>
+    
+    
     <div class="bot container">
         &copy 2020 Ndzeux
     </div>
-    <div class="modal" style="display: none;"></div>
-    <div class="overlay" style="display: none;"></div>
-    <button class="close-modal row middle-xs center-xs" style="display: none;">
-        <svg style="width:32px;height:32px" viewBox="0 0 24 24">
-            <path fill="#fff" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
-        </svg>
-    </button>
     
     <script>
-        let modal = document.querySelector(".modal");
-        let overlay = document.querySelector(".overlay");
-        let btnClose = document.querySelector(".close-modal");
-        let btns = document.querySelectorAll(".mid button");
-        btns.forEach(btn => {
-            btn.onclick = e => {
-                modal.style.cssText = "";
-                overlay.style.cssText = "";
-                btnClose.style.cssText = "";
-                modal.scrollTo(0,0);
-                document.body.style.overflow = "hidden";
-                modal.innerHTML = "<span class='loading'>Loading...</span>";
-                fetch(`/pages/${e.target.innerText.toLowerCase()}.html`).then(r => r.text()).then(data => {
-                        modal.innerHTML = data;
-                });
-            }
-        });
-        btnClose.onclick = () => {
-                document.body.style.cssText = "";
-                modal.style.display = "none";
-                overlay.style.display = "none";
-                btnClose.style.display = "none";
-        }
-        overlay.onclick = () => {
-                document.body.style.cssText = "";
-                modal.style.display = "none";
-                overlay.style.display = "none";
-                btnClose.style.display = "none";
-        }
+        
     </script>
 </body>
 </html>
